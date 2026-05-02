@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Runtime and diagnostic output
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary browser artifacts
+chrome-mcp/
+screenshot-*.png
+content-*.txt
+evaluate-*.txt
+
+# Package artifacts
+*.tgz
+
+# Environment files
+.env
+.env.*
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+

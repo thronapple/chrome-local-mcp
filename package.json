@@ -1,0 +1,29 @@
+{
+  "name": "chrome-local-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "chrome-local-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "node test-client.mjs",
+    "monitor:challenges": "node scripts/challenge-regression-monitor.mjs"
+  },
+  "keywords": ["mcp", "chrome", "devtools", "browser", "automation"],
+  "author": "",
+  "license": "ISC",
+  "description": "Lightweight MCP server for controlling Windows Chrome from WSL via CDP. Optimized for minimal token consumption with human-in-the-loop support.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "chrome-remote-interface": "^0.34.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.9.3"
+  }
+}

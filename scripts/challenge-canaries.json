@@ -1,0 +1,10 @@
+[
+  {
+    "name": "semianalysis-paid-preview",
+    "url": "https://newsletter.semianalysis.com/p/the-coding-assistant-breakdown-more",
+    "selector": "article",
+    "expected_has_challenge": false,
+    "expected_readable": true,
+    "min_text_length": 500
+  }
+]
