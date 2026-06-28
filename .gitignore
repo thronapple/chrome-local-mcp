@@ -24,6 +24,7 @@ evaluate-*.txt
 # Internal notes and design drafts
 docs/
 根本原因.md
+CLAUDE.md
 
 # Environment files
 .env
