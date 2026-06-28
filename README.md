@@ -28,6 +28,70 @@ Or start an isolated Chrome profile without closing your normal browser:
 .\scripts\start-chrome-debug.ps1
 ```
 
+The startup script supports multiple modes:
+
+```powershell
+# Recommended for screenshots: keeps rendering active when Chrome is covered/backgrounded.
+.\scripts\start-chrome-debug.ps1 -Mode stable
+
+# Plain visible Chrome with an isolated profile.
+.\scripts\start-chrome-debug.ps1 -Mode interactive
+
+# No visible Chrome window. Best for automation, but weaker for manual CAPTCHA/login flows.
+.\scripts\start-chrome-debug.ps1 -Mode headless
+```
+
+Equivalent npm shortcuts are available on Windows:
+
+```powershell
+npm run chrome:stable
+npm run chrome:stable:wsl
+npm run chrome:interactive
+npm run chrome:headless
+```
+
+`stable` adds Chrome flags that reduce background throttling and native occlusion issues:
+
+```text
+--disable-backgrounding-occluded-windows
+--disable-renderer-backgrounding
+--disable-background-timer-throttling
+--disable-features=CalculateNativeWinOcclusion
+```
+
+Useful options:
+
+```powershell
+.\scripts\start-chrome-debug.ps1 -Mode stable -Port 9333 -UserDataDir D:\tmp\chrome-mcp-profile
+.\scripts\start-chrome-debug.ps1 -Mode stable -WindowWidth 1600 -WindowHeight 1000
+.\scripts\start-chrome-debug.ps1 -Mode stable -ExtraArgs "--lang=en-US"
+.\scripts\start-chrome-debug.ps1 -Mode stable -ReadyTimeoutSeconds 20
+.\scripts\start-chrome-debug.ps1 -Mode stable -ReuseExisting
+.\scripts\start-chrome-debug.ps1 -Mode stable -DryRun
+```
+
+By default, the script refuses to launch a second Chrome when the requested debug port is already listening. Use `-ReuseExisting` only when you intentionally want to attach to the currently running Chrome CDP endpoint.
+
+If the MCP server runs in WSL and cannot reach Windows `localhost:9222`, bind Chrome to a reachable address and point the MCP server at the Windows host IP:
+
+```powershell
+.\scripts\start-chrome-debug.ps1 -Mode stable -RemoteDebuggingAddress 0.0.0.0
+```
+
+Or use the npm shortcut:
+
+```powershell
+npm run chrome:stable:wsl
+```
+
+Then start the MCP server with the Windows host IP instead of `localhost`:
+
+```bash
+node dist/index.js --host <windows-host-ip> --port 9222
+```
+
+`0.0.0.0` exposes Chrome DevTools beyond local loopback. Use it only on a trusted local machine/network and prefer firewall rules that restrict access.
+
 Verify Chrome DevTools Protocol is reachable:
 
 ```powershell

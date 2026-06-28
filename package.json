@@ -11,12 +11,20 @@
     "dev": "tsc --watch",
     "start": "node dist/index.js",
     "test": "node test-client.mjs",
+    "chrome:interactive": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-chrome-debug.ps1 -Mode interactive",
+    "chrome:stable": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-chrome-debug.ps1 -Mode stable",
+    "chrome:stable:wsl": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-chrome-debug.ps1 -Mode stable -RemoteDebuggingAddress 0.0.0.0",
+    "chrome:headless": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-chrome-debug.ps1 -Mode headless",
     "monitor:challenges": "node scripts/challenge-regression-monitor.mjs"
   },
   "keywords": ["mcp", "chrome", "devtools", "browser", "automation"],
   "author": "",
   "license": "ISC",
   "description": "Lightweight MCP server for controlling Windows Chrome from WSL via CDP. Optimized for minimal token consumption with human-in-the-loop support.",
+  "files": [
+    "dist/",
+    "scripts/"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",
     "chrome-remote-interface": "^0.34.0",

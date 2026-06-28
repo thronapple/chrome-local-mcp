@@ -21,6 +21,10 @@ evaluate-*.txt
 # Package artifacts
 *.tgz
 
+# Internal notes and design drafts
+docs/
+根本原因.md
+
 # Environment files
 .env
 .env.*
@@ -31,4 +35,3 @@ Thumbs.db
 Desktop.ini
 .vscode/
 .idea/
-
