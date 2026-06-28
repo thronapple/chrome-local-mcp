@@ -1,5 +1,7 @@
 # chrome-local-mcp
 
+[简体中文](README.zh-CN.md) | English
+
 Lightweight MCP server for controlling a Windows Chrome instance from WSL. Designed for AI coding agents (Claude Code, Codex, Cursor) that need browser interaction with minimal token overhead and human-in-the-loop support.
 
 ## Why?

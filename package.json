@@ -23,6 +23,7 @@
   "description": "Lightweight MCP server for controlling Windows Chrome from WSL via CDP. Optimized for minimal token consumption with human-in-the-loop support.",
   "files": [
     "dist/",
+    "README.zh-CN.md",
     "scripts/"
   ],
   "dependencies": {
